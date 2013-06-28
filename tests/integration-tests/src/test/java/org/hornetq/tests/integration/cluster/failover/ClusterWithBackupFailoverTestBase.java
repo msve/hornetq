@@ -333,7 +333,13 @@ public abstract class ClusterWithBackupFailoverTestBase extends ClusterTestBase
    {
       setupCluster();
 
-      startServers(0, 1, 2, 3, 4, 5);
+      startServers(3, 4, 5, 0, 1, 2);
+
+      for (int i = 0 ; i < 3; i++)
+      {
+          waitForTopology(servers[i], 3, 3);
+      }
+
 
       setupSessionFactory(0, 3, isNetty(), false);
       setupSessionFactory(1, 4, isNetty(), false);
