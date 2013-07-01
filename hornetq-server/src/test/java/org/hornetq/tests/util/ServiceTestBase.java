@@ -87,7 +87,7 @@ public abstract class ServiceTestBase extends UnitTestCase
     * debugging.
     */
    private static final String SEND_CALL_NUMBER = "sendCallNumber";
-   protected static final long WAIT_TIMEOUT = 30000;
+   protected static final long WAIT_TIMEOUT = 600000;
    private int sendMsgCount = 0;
 
    @Override
