@@ -47,6 +47,19 @@ public class BackupSyncLargeMessageTest extends BackupSyncJournalTest
 
    // ------------------------
 
+
+   @Test
+   public void testLoop() throws Exception
+   {
+      for (int i = 0; i < 1000; i++)
+      {
+         System.out.println("#test " + i);
+         testDeleteLargeMessages();
+         tearDown();
+         setUp();
+      }
+   }
+
    @Test
    public void testDeleteLargeMessages() throws Exception
    {
