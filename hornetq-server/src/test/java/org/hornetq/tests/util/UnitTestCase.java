@@ -1208,7 +1208,6 @@ public abstract class UnitTestCase extends CoreUnitTestCase
    {
       final String threadName = thread.getName();
       final ThreadGroup group = thread.getThreadGroup();
-      final boolean isSystemThread = group != null && "system".equals(group.getName());
       final String javaVendor = System.getProperty("java.vendor");
 
       if (threadName.contains("SunPKCS11"))
@@ -1219,7 +1218,7 @@ public abstract class UnitTestCase extends CoreUnitTestCase
       {
          return true;
       }
-      else if (isSystemThread && threadName.equals("process reaper"))
+      else if (threadName.equals("process reaper"))
       {
          return true;
       }
